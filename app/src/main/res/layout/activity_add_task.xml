@@ -81,6 +81,7 @@
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:id="@+id/btn_cancel"
         android:text="@string/label_cancel"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="@id/guide_start"

@@ -1,5 +1,6 @@
 package br.com.cleber.todolist.ui
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -44,8 +45,8 @@ class AddTaskActivity : AppCompatActivity() {
                 .build()
 
             timePicker.addOnPositiveButtonClickListener {
-                val minute = if (timePicker.hour in 0..9) "0${timePicker.hour}" else timePicker.hour
-                val hour = if (timePicker.minute in 0..9) "0${timePicker.minute}" else timePicker.minute
+                val hour = if (timePicker.hour in 0..9) "0${timePicker.hour}" else timePicker.hour
+                val minute = if (timePicker.minute in 0..9) "0${timePicker.minute}" else timePicker.minute
                 binding.tilHour.text = "$hour:$minute"
             }
             timePicker.show(supportFragmentManager, null)
@@ -62,7 +63,9 @@ class AddTaskActivity : AppCompatActivity() {
                 hour = binding.tilHour.text
             )
             TaskDataSource.insertTask(task)
-            Log.e("TAG", "insertListeners: " + TaskDataSource.getList())
+
+            setResult(Activity.RESULT_OK)
+            finish()
         }
     }
 }
